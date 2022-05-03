@@ -1,12 +1,5 @@
 import NIO
 
-@resultBuilder struct IntToStringBuilder {
-    public static func buildBlock(_ components: Int...) -> String {
-        components.map(String.init).joined(separator: ",")
-    }
-    
-}
-
 @resultBuilder public struct ChannelBuilder<InboundOut, OutboundIn> {
     public static func buildPartialBlock<Handler: ChannelDuplexHandler>(
         first handler: Handler

@@ -87,24 +87,6 @@ final class HTTPProxyServerResponseMapper: ChannelOutboundHandler {
     }
 }
 
-public final class ProxyToChannelHandler<C: WritableChannel>: ChannelInboundHandler {
-    public typealias InboundIn = C.OutboundIn
-    public typealias InboundOut = Never
-    
-    let channel: C
-    
-    public init(channel: C) {
-        self.channel = channel
-    }
-    
-    public func channelRead(context: ChannelHandlerContext, data: NIOAny) {
-        let data = unwrapInboundIn(data)
-        Task {
-            try await channel.write(data)
-        }
-    }
-}
-
 public final class OutputToChannelHandler<Payload>: ChannelInboundHandler {
     public typealias InboundIn = Payload
     public typealias InboundOut = Never
