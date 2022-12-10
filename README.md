@@ -1,5 +1,7 @@
 # ⚠️ Requires Swift 5.7
 
+# We're working on adding this to SwiftNIO itself
+
 Omnibus is a set of helpers for SwiftNIO that allow you to leverage Swift's generics type system to create NIO Channels.
 
 It depends on Swift 5.7's new ResultBuilder feature, [Partial Blocks](https://github.com/apple/swift-evolution/blob/main/proposals/0348-buildpartialblock.md), and leverages this to enable type-checked channel building.
